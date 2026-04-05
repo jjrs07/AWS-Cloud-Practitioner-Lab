@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Cloud9-PH | Your Daily Escape</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a3427;
+            --secondary: #d4a373;
+            --accent: #faedcd;
+            --text: #333;
+            --bg: #fefae0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        header {
+            background: rgba(74, 52, 39, 0.95);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            background: #bc8a5f;
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 0.5rem auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .menu-content {
+            padding: 1.5rem;
+        }
+
+        .menu-price {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: var(--white);
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .subscribe {
+            background: var(--accent);
+            text-align: center;
+        }
+
+        .subscribe-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .subscribe-form input:focus {
+            border-color: var(--secondary);
+        }
+
+        .contact {
+            text-align: center;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact h2 {
+            color: var(--accent);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer {
+            background: #2a1d15;
+            color: var(--accent);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about { flex-direction: column; gap: 2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CAFE CLOUD9-PH</div>
+        <nav>
+            <a href="#home">Home</a>
+            <!-- STUDENT TASK: Replace 'REPLACE_WITH_EC2_PUBLIC_IP' with your actual EC2 Public IP address -->
+            <a href="http://REPLACE_WITH_EC2_PUBLIC_IP/menu.php">Full Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Cloud9-PH</h1>
+        <p>Premium coffee, local flavors, and the perfect atmosphere for your next breakthrough.</p>
+        <!-- STUDENT TASK: Replace 'REPLACE_WITH_EC2_PUBLIC_IP' with your actual EC2 Public IP address -->
+        <a href="http://REPLACE_WITH_EC2_PUBLIC_IP/menu.php" class="btn">Explore Full Menu</a>
+    </section>
+
+    <section id="menu">
+        <h2 class="section-title">Our Signature Brews</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud9-PH Latte" class="menu-img">
+                <div class="menu-content">
+                    <h3>Cloud9-PH Latte</h3>
+                    <p>Smooth espresso with creamy steamed milk and a hint of vanilla.</p>
+                    <p class="menu-price">₱165</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Iced Coffee" class="menu-img">
+                <div class="menu-content">
+                    <h3>Iced Barako</h3>
+                    <p>Strong local barako coffee brewed to perfection over ice.</p>
+                    <p class="menu-price">₱145</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ube Cheesecake" class="menu-img">
+                <div class="menu-content">
+                    <h3>Ube Cheesecake</h3>
+                    <p>A fusion of classic cheesecake and Filipino purple yam.</p>
+                    <p class="menu-price">₱180</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cafe Interior">
+        </div>
+        <div class="about-text">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">The Cloud9-PH Story</h2>
+            <p>Born in the heart of the Philippines, Cafe Cloud9-PH started with a simple mission: to elevate the local coffee experience. We source our beans from the highlands of Benguet and Sagada, ensuring every cup supports local farmers.</p>
+            <br>
+            <p>Whether you're here to work, catch up with friends, or simply escape the hustle, we provide the perfect blend of comfort and quality.</p>
+        </div>
+    </section>
+
+    <section id="subscribe" class="subscribe">
+        <h2 class="section-title">Join the Cloud9-PH Club</h2>
+        <p>Subscribe to get exclusive offers, coffee tips, and first dibs on our new brews!</p>
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Salamat! You have successfully subscribed to Cafe Cloud9-PH.');">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn" style="border: none; cursor: pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="info-grid">
+            <div>
+                <h3>Location</h3>
+                <p>123 Skyway Avenue, Mandaluyong City<br>Metro Manila, Philippines</p>
+            </div>
+            <div>
+                <h3>Hours</h3>
+                <p>Mon - Fri: 7:00 AM - 9:00 PM<br>Sat - Sun: 8:00 AM - 10:00 PM</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p>@CafeCloud9PH</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Cafe Cloud9-PH. Proudly Filipino. Built for AWS Labs by James.</p>
+    </footer>
+
+</body>
+</html>
