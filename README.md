@@ -17,6 +17,7 @@ This project demonstrates a classic 3-tier web application within a secure and s
 
 - `index.html`: The main static landing page (to be uploaded to S3).
 - `error.html`: Custom 404 error page (to be uploaded to S3).
+- `user_data.sh`: EC2 automation script for installing Apache, PHP, and Git.
 - `menu.php`: The dynamic menu page (to be uploaded to EC2).
 - `db_setup.sql`: The database schema and sample data (to be run on RDS).
 
@@ -48,10 +49,13 @@ This project demonstrates a classic 3-tier web application within a secure and s
 
 ### Phase 4: Application Layer (EC2)
 1.  **Launch EC2**: Launch in **Public Subnet 1**.
-2.  **Install & Configure**:
-    - Install Apache and PHP.
-    - Upload and test `menu.php` with your RDS endpoint.
-3.  **Create AMI**: Once the site is working, create an **Image (AMI)** from this instance.
+2.  **Configure Instance**:
+    - Under **Advanced Details**, paste the contents of `user_data.sh` into the **User data** field.
+    - This will automatically install Apache, PHP, and clone this repository.
+3.  **Finalize & Test**:
+    - Edit `menu.php` on the instance (`sudo nano /var/www/html/menu.php`) with your RDS endpoint and credentials.
+    - Access your site via the EC2 Public IP.
+4.  **Create AMI**: Once the site is working, create an **Image (AMI)** from this instance.
 
 ### Phase 5: High Availability & Scaling (Advanced)
 1.  **Target Group**: Create a Target Group (Type: Instance, Protocol: HTTP, Port: 80).
