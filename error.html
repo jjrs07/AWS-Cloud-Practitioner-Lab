@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oops! | Cafe Cloud9-PH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a3427;
+            --secondary: #d4a373;
+            --accent: #faedcd;
+            --text: #333;
+            --bg: #fefae0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        header {
+            background: rgba(74, 52, 39, 0.95);
+            color: var(--white);
+            padding: 1rem 5%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(254, 250, 224, 0.8), rgba(254, 250, 224, 0.8)), 
+                        url('https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0px var(--primary);
+        }
+
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-description {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+        }
+
+        .btn:hover {
+            background: #bc8a5f;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #2a1d15;
+            color: var(--accent);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .error-code { font-size: 5rem; }
+            .error-message { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">CAFE CLOUD9-PH</a>
+    </header>
+
+    <main class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Oops! Spilled some coffee?</h1>
+        <p class="error-description">
+            Looks like this page has gone cold or never existed. Don't worry, the best brews are still waiting for you back at the counter.
+        </p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cafe Cloud9-PH. Proudly Filipino. Built for AWS Labs by James.</p>
+    </footer>
+
+</body>
+</html>
