@@ -4,6 +4,7 @@ dnf update -y
 
 # 2. Install Apache (httpd), PHP, and MySQL drivers (PDO/MySQLi)
 dnf install -y httpd php php-mysqli php-pdo
+dnf install -y mariadb105
 
 # 3. Start Apache and ensure it starts automatically on reboot
 systemctl start httpd
