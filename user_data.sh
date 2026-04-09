@@ -22,3 +22,11 @@ rm -rf *
 # 7. Clone your repository directly into the current directory (.)
 # This ensures index.html, menu.php, and other files are in the root folder.
 git clone https://github.com/jjrs07/AWS-Cloud-Practitioner-Lab.git .
+
+# 8. Fetch Availability Zone from Instance Metadata (IMDSv2)
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+AZ=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/placement/availability-zone)
+
+# 9. Replace placeholder with actual AZ in HTML files
+sed -i "s/REPLACE_WITH_AZ/$AZ/g" index.html
+sed -i "s/REPLACE_WITH_AZ/$AZ/g" index_ec2.html
