@@ -17,6 +17,7 @@ This project demonstrates a classic 3-tier web application within a secure and s
 
 - `index.html`: The main static landing page (to be uploaded to S3).
 - `error.html`: Custom 404 error page (to be uploaded to S3).
+- `s3_policy.json`: Bucket policy for public read access (to be applied to S3).
 - `user_data.sh`: EC2 automation script for installing Apache, PHP, and Git.
 - `menu.php`: The dynamic menu page (to be uploaded to EC2).
 - `db_setup.sql`: The database schema and sample data (to be run on RDS).
@@ -31,7 +32,13 @@ This project demonstrates a classic 3-tier web application within a secure and s
     - Set `index.html` as the **Index document**.
     - Set `error.html` as the **Error document**.
 3.  **Upload Files**: Upload `index.html` and `error.html` to the bucket.
-4.  **Permissions**: Ensure the bucket is public (or use CloudFront).
+4.  **Permissions & Policy**: 
+    - Go to the **Permissions** tab of your bucket.
+    - Edit **Block public access (bucket settings)** and uncheck "Block all public access" to allow public policies.
+    - Scroll down to **Bucket policy** and click **Edit**.
+    - Copy the contents of `s3_policy.json` into the editor.
+    - **Crucial**: Replace `<your-bucket-name>` in the policy with your actual bucket name.
+    - Save changes. Your bucket should now show a "Public" badge.
 
 ### Phase 2: Network Infrastructure (VPC)
 1.  **Create a VPC**: Name it `CafeVPC` (CIDR: `10.0.0.0/16`).
