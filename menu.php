@@ -1,7 +1,7 @@
 <?php
 // RDS Connection Settings
 $host = "REPLACE_WITH_RDS_ENDPOINT";
-$db_name = "cafe_db";
+$db_name = "cafedb";
 $username = "admin";
 $password = "REPLACE_WITH_RDS_PASSWORD";
 
